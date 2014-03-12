@@ -12,7 +12,6 @@ var con = led.createSocket({
         console.log('connected');
     }
 );
-var bright = 0;
 
 con.turnOn(1);
 con.setColor(30);
@@ -24,19 +23,6 @@ con.setColor(30);
  * proposed api
 con.turnOn(zone);
 con.turnOff(zone);
-con.setbrightness(zone, val)
-con.setColor(zone, val);
+con.setbrightness(val)
+con.setColor(val);
 */
-/*[
- 	led.RGBW.BRIGHTNESS
-    
-].forEach(function (cmd, index) {
-   setTimeout(function () {
-	   con.turnOn(1);
-	   bright += 10;
-	   console.log(bright);
-       con.send(cmd, bright);
-   }, 100);
-  
-	//console.log(cmd.toString(16))
-});*/
