@@ -1,16 +1,42 @@
-var limitless = require('./lib/limitless').LimitlessLED;
+/**
+ * 
+ */
+var led = require('limitless-gem'); //Normally require('LimitlessGEM');
 
-exports.RGB = require('./lib/commands/rgb');
-exports.RGBW = require('./lib/commands/rgbw');
-exports.WHITE = require('./lib/commands/white');
+var con = led.createSocket({
+        host: '192.168.1.34',
+        port: 8899
+    },
+    'udp',
+    function () {
+        console.log('connected');
+    }
+);
+var bright = 0;
 
-exports.createSocket = function (opts, type, callback) {
-    var params = {
-        host: (opts.host || '10.10.10.100'),
-        port: (opts.port || 8899),
-        type: (type || 'udp'),
-        callback: callback
-    };
+con.turnOn(1);
+con.setColor(30);
 
-    return new limitless(params);
-}
+
+//con.turnOn(1);
+
+/*
+ * proposed api
+con.turnOn(zone);
+con.turnOff(zone);
+con.setbrightness(zone, val)
+con.setColor(zone, val);
+*/
+/*[
+ 	led.RGBW.BRIGHTNESS
+    
+].forEach(function (cmd, index) {
+   setTimeout(function () {
+	   con.turnOn(1);
+	   bright += 10;
+	   console.log(bright);
+       con.send(cmd, bright);
+   }, 100);
+  
+	//console.log(cmd.toString(16))
+});*/
