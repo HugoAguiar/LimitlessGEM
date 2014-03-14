@@ -11,9 +11,12 @@ npm install limitless-gem
 ```
 Or you can include it in your package.json to use it in your own application
 
+udpServer.js available under /example can act as a LimitlessLED simulator
+Usage:
+node udpServer.js host port
+
 ## TODO
 
 - Expand command list with all available LimitlessLED products (RGW, W, RGB+W)
-- Add dynamic commands (Change color, set brightness)
 - Add unit tests
 - Add examples
