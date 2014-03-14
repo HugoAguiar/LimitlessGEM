@@ -14,13 +14,16 @@ server.on("message", function (msg, rinfo) {
 	case 0x4D.toString(16): console.log('Disco Mode'); break;
 	case 0x4E.toString(16): console.log('Brightness set to '+msg[1].toString(16)); break;
 	case 0x40.toString(16): console.log('Color set to '+msg[1].toString(16)); break;
-	default: console.log('invalid command');
+	default: console.log('invalid command');break;
 	
 	}
-  console.log("server got: " + parseInt(msg, 16) + " from " + rinfo.address + ":" + rinfo.port);
+  console.log("server got: " + msg.toString(16) + " from " + rinfo.address + ":" + rinfo.port);
 });
 server.on("listening", function () {
   var address = server.address();
   console.log("server listening " + address.address + ":" + address.port);
 });
-server.bind(8899, '127.0.0.1');
+var host = process.argv[2];
+var port = process.argv[3];
+
+server.bind(port, host);
