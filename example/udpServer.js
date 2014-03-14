@@ -17,7 +17,7 @@ server.on("message", function (msg, rinfo) {
 	default: console.log('invalid command');break;
 	
 	}
-  console.log("server got: " + parseInt(msg.toString(16), 16) + " from " + rinfo.address + ":" + rinfo.port);
+  console.log("server got: " + parseInt(msg[0].toString(16), 16) + " from " + rinfo.address + ":" + rinfo.port);
 });
 server.on("listening", function () {
   var address = server.address();
