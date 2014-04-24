@@ -16,13 +16,3 @@ var con = led.createSocket({
 con.turnOn(1);
 con.setColor(30);
 
-
-//con.turnOn(1);
-
-/*
- * proposed api
-con.turnOn(zone);
-con.turnOff(zone);
-con.setbrightness(val)
-con.setColor(val);
-*/
